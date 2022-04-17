@@ -57,14 +57,14 @@ CREATE TABLE tblGame (
 );
 
 -- -----------------------------------------------------
--- tblGamePlataform
+-- tblGamePlatform
 -- -----------------------------------------------------
-CREATE TABLE tblGamePlataform (
-  idGamePlataform INTEGER NOT NULL IDENTITY(1,1),
+CREATE TABLE tblGamePlatform (
+  idGamePlatform INTEGER NOT NULL IDENTITY(1,1),
   idGame INTEGER NOT NULL,
   idTypePlatform INTEGER NOT NULL,
   stActive BIT NOT NULL DEFAULT 1, 
-  PRIMARY KEY (idGamePlataform),
+  PRIMARY KEY (idGamePlatform),
   FOREIGN KEY (idGame) REFERENCES tblGame(idGame) ON DELETE CASCADE, 
   FOREIGN KEY (idTypePlatform) REFERENCES tblTypePlatform(idTypePlatform) ON DELETE CASCADE
 );
@@ -86,11 +86,11 @@ CREATE TABLE tblMedia (
 -- tblHighlight
 -- -----------------------------------------------------
 CREATE TABLE tblHighlight (
-  idDestaque INTEGER NOT NULL IDENTITY(1,1),
+  idHighlight INTEGER NOT NULL IDENTITY(1,1),
   idGame INTEGER NOT NULL,
   dsPublicationDate DATE NOT NULL, 
   stActive BIT NOT NULL DEFAULT 1, 
-  PRIMARY KEY (idDestaque),
+  PRIMARY KEY (idHighlight),
   FOREIGN KEY (idGame) REFERENCES tblGame(idGame) ON DELETE CASCADE
 );
 
@@ -110,11 +110,11 @@ CREATE TABLE tblTypeState (
 -- -----------------------------------------------------
 CREATE TABLE tblWarehouseEntrance (
   idWarehouseEntrance INTEGER NOT NULL IDENTITY(1,1),
-  idGamePlataform INTEGER NOT NULL,
+  idGamePlatform INTEGER NOT NULL,
   dsQuantity INTEGER NOT NULL,
   stActive BIT NOT NULL DEFAULT 1, 
   PRIMARY KEY (idWarehouseEntrance),
-  FOREIGN KEY (idGamePlataform) REFERENCES tblGamePlataform(idGamePlataform) ON DELETE CASCADE,  
+  FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE,  
 );
 
 -- -----------------------------------------------------
@@ -123,11 +123,11 @@ CREATE TABLE tblWarehouseEntrance (
 -- SEE: https://stackoverflow.com/a/31514576/4678899
 CREATE TABLE tblPrice (
   idPrice INTEGER NOT NULL IDENTITY(1,1),
-  idGamePlataform INTEGER NOT NULL,
+  idGamePlatform INTEGER NOT NULL,
   dsValue DECIMAL(5,2)  NOT NULL,
   stActive BIT NOT NULL DEFAULT 1, 
   PRIMARY KEY (idPrice),
-  FOREIGN KEY (idGamePlataform) REFERENCES tblGamePlataform(idGamePlataform) ON DELETE CASCADE,  
+  FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE,  
 );
 
 -- -----------------------------------------------------

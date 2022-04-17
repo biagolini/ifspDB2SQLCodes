@@ -183,9 +183,9 @@ SELECT * FROM tblGame;
 
 
 -- -----------------------------------------------------
--- tblGamePlataform
+-- tblGamePlatform
 -- -----------------------------------------------------
-INSERT INTO tblGamePlataform(idGame,idTypePlatform) VALUES
+INSERT INTO tblGamePlatform(idGame,idTypePlatform) VALUES
 (1,1),
 (2,1),
 (3,1),
@@ -320,7 +320,7 @@ INSERT INTO tblGamePlataform(idGame,idTypePlatform) VALUES
 (124,1),
 (125,1),
 (126,1);
-SELECT * FROM tblGamePlataform;
+SELECT * FROM tblGamePlatform;
 
 
 -- -----------------------------------------------------
@@ -473,7 +473,7 @@ SELECT * FROM tblTypeState;
 -- -----------------------------------------------------
 -- tblWarehouseEntrance
 -- -----------------------------------------------------
-INSERT INTO tblWarehouseEntrance(idGamePlataform,dsQuantity) VALUES
+INSERT INTO tblWarehouseEntrance(idGamePlatform,dsQuantity) VALUES
 (15,16),
 (113,25),
 (11,13),
@@ -580,7 +580,7 @@ SELECT * FROM tblWarehouseEntrance;
 -- -----------------------------------------------------
 -- tblPrice
 -- -----------------------------------------------------
-INSERT INTO tblPrice(idGamePlataform, dsValue) VALUES
+INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
 (15,510.29),
 (113,493.91),
 (11,467.09),

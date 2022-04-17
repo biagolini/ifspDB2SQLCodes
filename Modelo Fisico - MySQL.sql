@@ -57,10 +57,10 @@ CREATE TABLE tblGame (
 
 
 -- -----------------------------------------------------
--- tblGamePlataform
+-- tblGamePlatform
 -- -----------------------------------------------------
-CREATE TABLE tblGamePlataform (
-  idGamePlataform  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE tblGamePlatform (
+  idGamePlatform  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGame INTEGER NOT NULL,
   idTypePlatform INTEGER NOT NULL,
   stActive BOOLEAN NOT NULL DEFAULT 1, 
@@ -86,7 +86,7 @@ CREATE TABLE tblMedia (
 -- tblHighlight
 -- -----------------------------------------------------
 CREATE TABLE tblHighlight (
-  idDestaque  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idHighlight  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGame INTEGER NOT NULL,
   dsPublicationDate DATE NOT NULL, 
   stActive BOOLEAN NOT NULL DEFAULT 1,
@@ -108,10 +108,10 @@ CREATE TABLE tblTypeState (
 -- -----------------------------------------------------
 CREATE TABLE tblWarehouseEntrance (
   idWarehouseEntrance  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idGamePlataform INTEGER NOT NULL,
+  idGamePlatform INTEGER NOT NULL,
   dsQuantity INTEGER NOT NULL,
   stActive BOOLEAN NOT NULL DEFAULT 1, 
-  FOREIGN KEY (idGamePlataform) REFERENCES tblGamePlataform(idGamePlataform) ON DELETE CASCADE
+  FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE
 );
 
 
@@ -121,10 +121,10 @@ CREATE TABLE tblWarehouseEntrance (
 -- SEE: https://stackoverflow.com/a/31514576/4678899
 CREATE TABLE tblPrice (
   idPrice  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idGamePlataform INTEGER NOT NULL,
+  idGamePlatform INTEGER NOT NULL,
   dsValue DECIMAL(5,2)  NOT NULL,
   stActive BOOLEAN NOT NULL DEFAULT 1, 
-  FOREIGN KEY (idGamePlataform) REFERENCES tblGamePlataform(idGamePlataform) ON DELETE CASCADE
+  FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE
 );
 
 
