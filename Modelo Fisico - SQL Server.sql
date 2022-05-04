@@ -1,4 +1,10 @@
 -- -----------------------------------------------------
+-- Apagar BD antigo, caso exista
+-- -----------------------------------------------------
+USE master;  
+DROP DATABASE IF EXISTS GameStore;
+
+-- -----------------------------------------------------
 -- Criar BD
 -- -----------------------------------------------------
 CREATE DATABASE GameStore;
@@ -125,6 +131,7 @@ CREATE TABLE tblPrice (
   idPrice INTEGER NOT NULL IDENTITY(1,1),
   idGamePlatform INTEGER NOT NULL,
   dsValue DECIMAL(5,2)  NOT NULL,
+  dsDateTimePublish DATETIME NOT NULL DEFAULT GETDATE();
   stActive BIT NOT NULL DEFAULT 1, 
   PRIMARY KEY (idPrice),
   FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE,  
@@ -168,15 +175,27 @@ CREATE TABLE tblCustomer (
 -- -----------------------------------------------------
 CREATE TABLE tblOrder (
   idOrder INTEGER NOT NULL IDENTITY(1,1),
-  idPrice INTEGER NOT NULL,  
   idCustomer INTEGER NOT NULL,
   idTypeStatusOrder INTEGER NOT NULL, 
-  dsQuantity INTEGER NOT NULL,
+  dsDateTimeOrder DATETIME NOT NULL DEFAULT GETDATE();
+  dsTotalValue DECIMAL(7,2)  NOT NULL,
   dsTrackingCode VARCHAR(100),
-  PRIMARY KEY (idOrder),
-  FOREIGN KEY (idPrice) REFERENCES tblPrice(idPrice) ON DELETE CASCADE,
+  PRIMARY KEY (idOrder),  
   FOREIGN KEY (idCustomer) REFERENCES tblCustomer(idCustomer) ON DELETE CASCADE, 
   FOREIGN KEY (idTypeStatusOrder) REFERENCES tblTypeStatusOrder(idTypeStatusOrder) ON DELETE CASCADE
 );
 
+
+
+-- -----------------------------------------------------
+-- tblIten
+-- -----------------------------------------------------
+CREATE TABLE tblIten (
+  idIten INTEGER NOT NULL IDENTITY(1,1),
+  idOrder INTEGER NOT NULL,
+  idPrice INTEGER NOT NULL,   
+  dsQuantity INTEGER NOT NULL,  
+  FOREIGN KEY (idOrder) REFERENCES tblOrder(idOrder) ON DELETE CASCADE,
+  FOREIGN KEY (idPrice) REFERENCES tblPrice(idPrice) ON DELETE CASCADE
+);
 

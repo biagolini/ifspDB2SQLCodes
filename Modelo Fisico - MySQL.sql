@@ -1,4 +1,9 @@
 -- -----------------------------------------------------
+-- Apagar BD antigo, caso exista
+-- ----------------------------------------------------- 
+DROP DATABASE IF EXISTS GameStore;
+
+-- -----------------------------------------------------
 -- Criar BD
 -- -----------------------------------------------------
 CREATE DATABASE GameStore;
@@ -118,11 +123,11 @@ CREATE TABLE tblWarehouseEntrance (
 -- -----------------------------------------------------
 -- tblPrice
 -- -----------------------------------------------------
--- SEE: https://stackoverflow.com/a/31514576/4678899
 CREATE TABLE tblPrice (
   idPrice  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGamePlatform INTEGER NOT NULL,
   dsValue DECIMAL(5,2)  NOT NULL,
+  dsDateTimePublish DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
   stActive BOOLEAN NOT NULL DEFAULT 1, 
   FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE
 );
@@ -164,14 +169,25 @@ CREATE TABLE tblCustomer (
 -- tblOrder
 -- -----------------------------------------------------
 CREATE TABLE tblOrder (
-  idOrder  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idPrice INTEGER NOT NULL,  
+  idOrder  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,  
   idCustomer INTEGER NOT NULL,
   idTypeStatusOrder INTEGER NOT NULL,   
-  dsQuantity INTEGER NOT NULL,  
+  dsDateTimeOrder DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
+  dsTotalValue DECIMAL(7,2)  NOT NULL,
   dsTrackingCode VARCHAR(100),
-  FOREIGN KEY (idPrice) REFERENCES tblPrice(idPrice) ON DELETE CASCADE,
   FOREIGN KEY (idCustomer) REFERENCES tblCustomer(idCustomer) ON DELETE CASCADE,
   FOREIGN KEY (idTypeStatusOrder) REFERENCES tblTypeStatusOrder(idTypeStatusOrder) ON DELETE CASCADE
+);
+
+-- -----------------------------------------------------
+-- tblIten
+-- -----------------------------------------------------
+CREATE TABLE tblIten (
+  idIten INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idOrder  INTEGER NOT NULL,
+  idPrice INTEGER NOT NULL,   
+  dsQuantity INTEGER NOT NULL,  
+  FOREIGN KEY (idOrder) REFERENCES tblOrder(idOrder) ON DELETE CASCADE,
+  FOREIGN KEY (idPrice) REFERENCES tblPrice(idPrice) ON DELETE CASCADE
 );
 

@@ -413,8 +413,15 @@ INSERT INTO tblMedia(idGame,isVideo,dsUrl) VALUES
 (125,0,'https://upload.wikimedia.org/wikipedia/en/c/c3/Xenoblade-Landscape.jpg'),
 (125,0,'https://upload.wikimedia.org/wikipedia/en/d/d7/Xenoblade_-_Battle_System_%28without_Monado%29.png'),
 (126,0,'https://upload.wikimedia.org/wikipedia/en/6/6c/Yoshi_pre-release_gameplay_screenshot_2.jpg'),
-(126,0,'https://upload.wikimedia.org/wikipedia/en/8/81/Yoshi_pre-release_gameplay_screenshot_1.jpg');
+(126,0,'https://upload.wikimedia.org/wikipedia/en/8/81/Yoshi_pre-release_gameplay_screenshot_1.jpg'),
+(20,0,'https://www.cyberpunk.net/build/images/home3/screen-image-mercenary-e79283ec.jpg'),
+(20,0,'https://www.cyberpunk.net/build/images/home3/screen-image-implant-0c07a7ce.jpg'),
+(20,0,'https://www.cyberpunk.net/build/images/media/screenshots/Cyberpunk2077_Party_at_night_RGB-en-d339ac11.jpg'),
+(20,0,'https://www.cyberpunk.net/build/images/media/screenshots/Cyberpunk2077_Love_this_town_RGB-en-bc9e7b03.jpg'),
+(20,1,'https://www.youtube.com/embed/qIcTM8WXFj'),
+(20,1,'https://www.youtube.com/embed/liuFhVXAlZw');
 SELECT * FROM tblMedia;
+
 
 -- -----------------------------------------------------
 -- tblHighlight
@@ -682,6 +689,18 @@ INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
 (117,500.24),
 (85,543.4);
 SELECT * FROM tblPrice;
+-- -----------------------------------------------------
+-- tblPrice
+-- -----------------------------------------------------
+INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
+(21,100),
+(22,10);
+
+INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
+(21,200),
+(22,200);
+
+
 
 -- -----------------------------------------------------
 -- tblTypeStatusOrder
@@ -698,17 +717,54 @@ SELECT * FROM tblTypeStatusOrder;
 -- tblCustomer
 -- -----------------------------------------------------
 INSERT INTO tblCustomer(dsUsername,dsFirstName,dsLastName,dsEmail,dsBirthDate,dsCPF,dsStreet,dsNumber,dsCity,idTypeState,dsZip) VALUES
-('arthur.santos','Arthur','Santos','arthur.santos@email.com','2000-09-29','11 A','Rua A','111','São Paulo',25,'1001001'),
-('heloisa.oliveira','Heloísa','Oliveira','heloisa.oliveira@email.com','1990-12-10','22','Rua B','222','Sorocaba',25,'18013900'),
-('bernardo.rodrigues','Bernardo','Rodrigues','bernardo.rodrigues@email.com','1995-11-22','33','Rua C',NULL,'Brasília',7,'70910900');
+('jose.almeida','José','Almeida','jose.almeida@email.com','1984-10-18','88918301006','Rua 1','1','São Paulo',25,'1001001'),
+('arthur.santos','Arthur','Santos','arthur.santos@email.com','2004-02-14','25576356004','Rua 2','1','Santos',25,'1001002'),
+('heloisa.oliveira','Heloísa','Oliveira','heloisa.oliveira@email.com','2004-05-17','91790702054','Rua 3','1','Sorocaba',25,'1001003'),
+('davi.souza','Davi','Souza','davi.souza@email.com','2000-12-20','55466693065','Rua 4','1','Guarulhos ',25,'1001004'),
+('bernardo.rodrigues','Bernardo','Rodrigues','bernardo.rodrigues@email.com','2000-01-01','99901640024','Rua 5','1','Campinas ',25,'1001005'),
+('maria.alice.ferreira','Maria Alice','Ferreira','maria.alice.ferreira@email.com','1985-09-10','58025924009','Rua 6','1','São Bernardo do Campo',25,'1001006'),
+('theo.alves','Theo','Alves','theo.alves@email.com','1997-11-28','38515930064','Rua 7','1','São José dos Campos',25,'1001007'),
+('gabriel.pereira','Gabriel','Pereira','gabriel.pereira@email.com','1982-12-08','11743704089','Rua 8','1','Santo André ',25,'1001008'),
+('joao.miguel.lima','João Miguel','Lima','joao.miguel.lima@email.com','2002-09-30','11642512010','Rua 9','1','São Paulo',25,'1001009'),
+('maria.clara.gomes','Maria Clara','Gomes','maria.clara.gomes@email.com','1989-11-27','67272349069','Rua 10','1','Sorocaba',25,'1001010'),
+('heitor.costa','Heitor','Costa','heitor.costa@email.com','1996-12-26','67272349069','Rua 11',NULL,'Brasília',7,'2001001'),
+('maria.cecilia.ribeiro','Maria Cecília','Ribeiro','maria.cecilia.ribeiro@email.com','1985-07-22','42004588020','Rua 12','1','Belo Horizonte',13,'3001001'),
+('helena.martins','Helena','Martins','helena.martins@email.com','1999-03-09','58715308006','Rua 13','1','Belo Horizonte',13,'3001001'),
+('laura.carvalho','Laura','Carvalho','laura.carvalho@email.com','1993-10-29','16418911067','Rua 14','1','Sorocaba',25,'1001011'),
+('sophia.almeida','Sophia','Almeida','sophia.almeida@email.com','1985-07-05','61191455084','Rua 15','1','São Paulo',25,'1001012'),
+('gael.lopes','Gael','Lopes','gael.lopes@email.com','1999-12-18','18595255040','Rua 16','1','Campinas ',25,'1001013'),
+('samuel.soares','Samuel','Soares','samuel.soares@email.com','1985-02-18','56386869087','Rua 17','1','Uberlândia',13,'3001002'),
+('miguel.fernandes','Miguel','Fernandes','miguel.fernandes@email.com','2002-07-26','21231747005','Rua 18','1','Rio de Janeiro',19,'4001001'),
+('valentina.vieira','Valentina','Vieira','valentina.vieira@email.com','2002-05-20','38029618034','Rua 19','1','Rio de Janeiro',19,'4001001'),
+('maria.julia.barbosa','Maria Julia','Barbosa','maria.julia.barbosa@email.com','1984-09-12','74863186010','Rua 20','1',' São Gonçalo',19,'4001002');
 SELECT * FROM tblCustomer;
 
 -- -----------------------------------------------------
 -- tblOrder
 -- -----------------------------------------------------
-INSERT INTO tblOrder(idPrice,idCustomer,idTypeStatusOrder,dsQuantity,dsTrackingCode) VALUES
-(10,1,1,1,'ABC010203'),
-(20,2,2,1,'ABC040506'),
-(40,3,3,1,'ABC777999');
+INSERT INTO tblOrder(idCustomer,idTypeStatusOrder,dsTotalValue,dsTrackingCode) VALUES
+(1,5,100,'A001'),
+(2,5,200,'B002'),
+(3,4,300,'C003'),
+(4,4,400,'D004'),
+(1,3,500,'E005'),
+(2,3,600,'F006'),
+(5,2,700,'G007'),
+(6,2,800,'H008'),
+(9,1,900,'I009'),
+(7,1,1000,'J0010'),
+(8,2,2000,'K0011'),
+(8,1,3000,'L0012');
 SELECT * FROM tblOrder;
 
+-- -----------------------------------------------------
+-- tblIten
+-- -----------------------------------------------------
+INSERT INTO tblIten(idOrder,idPrice,dsQuantity) VALUES
+(1,1,1),
+(1,2,1),
+(1,3,1),
+(2,2,2),
+(2,2,1),
+(3,3,1);
+SELECT * FROM tblIten;
