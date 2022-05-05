@@ -180,10 +180,10 @@ CREATE TABLE tblOrder (
 );
 
 -- -----------------------------------------------------
--- tblIten
+-- tblItem
 -- -----------------------------------------------------
-CREATE TABLE tblIten (
-  idIten INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE tblItem (
+  idItem INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idOrder  INTEGER NOT NULL,
   idPrice INTEGER NOT NULL,   
   dsQuantity INTEGER NOT NULL,  

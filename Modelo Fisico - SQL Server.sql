@@ -188,10 +188,10 @@ CREATE TABLE tblOrder (
 
 
 -- -----------------------------------------------------
--- tblIten
+-- tblItem
 -- -----------------------------------------------------
-CREATE TABLE tblIten (
-  idIten INTEGER NOT NULL IDENTITY(1,1),
+CREATE TABLE tblItem (
+  idItem INTEGER NOT NULL IDENTITY(1,1),
   idOrder INTEGER NOT NULL,
   idPrice INTEGER NOT NULL,   
   dsQuantity INTEGER NOT NULL,  

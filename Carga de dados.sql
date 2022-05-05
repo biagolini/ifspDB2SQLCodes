@@ -758,13 +758,13 @@ INSERT INTO tblOrder(idCustomer,idTypeStatusOrder,dsTotalValue,dsTrackingCode) V
 SELECT * FROM tblOrder;
 
 -- -----------------------------------------------------
--- tblIten
+-- tblItem
 -- -----------------------------------------------------
-INSERT INTO tblIten(idOrder,idPrice,dsQuantity) VALUES
+INSERT INTO tblItem(idOrder,idPrice,dsQuantity) VALUES
 (1,1,1),
 (1,2,1),
 (1,3,1),
 (2,2,2),
 (2,2,1),
 (3,3,1);
-SELECT * FROM tblIten;
+SELECT * FROM tblItem;
