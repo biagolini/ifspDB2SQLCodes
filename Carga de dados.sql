@@ -455,7 +455,7 @@ SELECT * FROM GameStore.tblMedia;
 -- tblHighlight
 -- -----------------------------------------------------
 INSERT INTO GameStore.tblHighlight(idGame,dsPublicationDate,dsHighlightHeader,dsHighlightImage,dsHighlightDescription) VALUES
-(126,'2022-03-06','Faça arte com o Yoshi em um mundo artesanal','https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_YoshisCraftedWorld_image1600w.jpg','Entre numa nova aventura do Yoshi em um mundo feito de objetos do dia a dia – como caixas e copos de papel! Jogando como o Yoshi, você saltará alto, engolirá inimigos e sairá à caça de tesouros para encontrar todos os diferentes itens colecionáveis. Por outro lado, as fases podem ser jogadas de trás para frente, abrindo novas perspectivas a serem exploradas e novas maneiras de se encontrar alguns itens que foram escondidos com mais cuidado!'),
+(126,'2022-03-06','Faça arte com o Yoshi em um mundo artesanal','https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_YoshisCraftedWorld_image1600w.jpg','Entre numa nova aventura do Yoshi em um mundo feito de objetos do dia a dia – como caixas e copos de papel! Jogando como o Yoshi, você saltará alto, engolirá inimigos e sairá à caça de tesouros para encontrar todos os diferentes itens colecionáveis.'),
 (122,'2022-03-07','Cada tesouro tem seu preço','https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-a-thiefs-end-accolades-screen-01-ps4-us-12may16?$1600px$','Três anos depois dos acontecimentos de UNCHARTED 3: Drake´s Deception, tudo indica que Nathan Drake deixou para trás o mundo dos caçadores de tesouros. Porém, não demora muito para o destino bater à porta dele: é seu irmão, Sam, que reaparece pedindo ajuda para salvar a própria vida e oferece uma aventura que Drake não pode recusar.'),
 (113,'2022-03-08','Uma história complexa e emocionante','https://www.arkade.com.br/wp-content/uploads/2020/06/the-last-of-us-2-capa.jpg','Vivencie os conflitos morais cada vez maiores criados pela caçada implacável de Ellie em busca de vingança. O ciclo de violência deixado no caminho dela desafiará as suas noções de certo ou errado, bem ou mal e herói ou vilão.'),
 (20,'2022-03-09','Explore a cidade do futuro','https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7','Night City está repleta de coisas para fazer, lugares para ver e pessoas para conhecer. E você decide aonde ir, quando partir e como chegar lá.'),
@@ -741,26 +741,26 @@ SELECT * FROM GameStore.tblTypeStatusOrder;
 -- tblCustomer
 -- -----------------------------------------------------
 INSERT INTO GameStore.tblCustomer(dsUsername,dsFirstName,dsLastName,dsEmail,dsBirthDate,dsCPF,dsStreet,dsNumber,dsCity,idTypeState,dsZip) VALUES
-('jose.almeida','José','Almeida','jose.almeida@email.com','1984-10-18','88918301006','Rua 1','1','São Paulo',25,'1001001'),
-('arthur.santos','Arthur','Santos','arthur.santos@email.com','2004-02-14','25576356004','Rua 2','1','Santos',25,'1001002'),
-('heloisa.oliveira','Heloísa','Oliveira','heloisa.oliveira@email.com','2004-05-17','91790702054','Rua 3','1','Sorocaba',25,'1001003'),
-('davi.souza','Davi','Souza','davi.souza@email.com','2000-12-20','55466693065','Rua 4','1','Guarulhos ',25,'1001004'),
-('bernardo.rodrigues','Bernardo','Rodrigues','bernardo.rodrigues@email.com','2000-01-01','99901640024','Rua 5','1','Campinas ',25,'1001005'),
-('maria.alice.ferreira','Maria Alice','Ferreira','maria.alice.ferreira@email.com','1985-09-10','58025924009','Rua 6','1','São Bernardo do Campo',25,'1001006'),
-('theo.alves','Theo','Alves','theo.alves@email.com','1997-11-28','38515930064','Rua 7','1','São José dos Campos',25,'1001007'),
-('gabriel.pereira','Gabriel','Pereira','gabriel.pereira@email.com','1982-12-08','11743704089','Rua 8','1','Santo André ',25,'1001008'),
-('joao.miguel.lima','João Miguel','Lima','joao.miguel.lima@email.com','2002-09-30','11642512010','Rua 9','1','São Paulo',25,'1001009'),
-('maria.clara.gomes','Maria Clara','Gomes','maria.clara.gomes@email.com','1989-11-27','67272349069','Rua 10','1','Sorocaba',25,'1001010'),
-('heitor.costa','Heitor','Costa','heitor.costa@email.com','1996-12-26','67272349069','Rua 11',NULL,'Brasília',7,'2001001'),
-('maria.cecilia.ribeiro','Maria Cecília','Ribeiro','maria.cecilia.ribeiro@email.com','1985-07-22','42004588020','Rua 12','1','Belo Horizonte',13,'3001001'),
-('helena.martins','Helena','Martins','helena.martins@email.com','1999-03-09','58715308006','Rua 13','1','Belo Horizonte',13,'3001001'),
-('laura.carvalho','Laura','Carvalho','laura.carvalho@email.com','1993-10-29','16418911067','Rua 14','1','Sorocaba',25,'1001011'),
-('sophia.almeida','Sophia','Almeida','sophia.almeida@email.com','1985-07-05','61191455084','Rua 15','1','São Paulo',25,'1001012'),
+('jose.almeida','José','Almeida','jose.almeida@email.com','1984-10-18','88918301006','Rua 1','1','São Paulo',25,'10010010'),
+('arthur.santos','Arthur','Santos','arthur.santos@email.com','2004-02-14','25576356004','Rua 2','1','Santos',25,'10010020'),
+('heloisa.oliveira','Heloísa','Oliveira','heloisa.oliveira@email.com','2004-05-17','91790702054','Rua 3','1','Sorocaba',25,'10010030'),
+('davi.souza','Davi','Souza','davi.souza@email.com','2000-12-20','55466693065','Rua 4','1','Guarulhos ',25,'10010040'),
+('bernardo.rodrigues','Bernardo','Rodrigues','bernardo.rodrigues@email.com','2000-01-01','99901640024','Rua 5','1','Campinas ',25,'10010050'),
+('maria.alice.ferreira','Maria Alice','Ferreira','maria.alice.ferreira@email.com','1985-09-10','58025924009','Rua 6','1','São Bernardo do Campo',25,'10010060'),
+('theo.alves','Theo','Alves','theo.alves@email.com','1997-11-28','38515930064','Rua 7','1','São José dos Campos',25,'10010070'),
+('gabriel.pereira','Gabriel','Pereira','gabriel.pereira@email.com','1982-12-08','11743704089','Rua 8','1','Santo André ',25,'10010080'),
+('joao.miguel.lima','João Miguel','Lima','joao.miguel.lima@email.com','2002-09-30','11642512010','Rua 9','1','São Paulo',25,'10010090'),
+('maria.clara.gomes','Maria Clara','Gomes','maria.clara.gomes@email.com','1989-11-27','67272349069','Rua 10','1','Sorocaba',25,'10010100'),
+('heitor.costa','Heitor','Costa','heitor.costa@email.com','1996-12-26','67272349069','Rua 11',NULL,'Brasília',7,'20010010'),
+('maria.cecilia.ribeiro','Maria Cecília','Ribeiro','maria.cecilia.ribeiro@email.com','1985-07-22','42004588020','Rua 12','1','Belo Horizonte',13,'30010010'),
+('helena.martins','Helena','Martins','helena.martins@email.com','1999-03-09','58715308006','Rua 13','1','Belo Horizonte',13,'30010010'),
+('laura.carvalho','Laura','Carvalho','laura.carvalho@email.com','1993-10-29','16418911067','Rua 14','1','Sorocaba',25,'10010110'),
+('sophia.almeida','Sophia','Almeida','sophia.almeida@email.com','1985-07-05','61191455084','Rua 15','1','São Paulo',25,'10010120'),
 ('gael.lopes','Gael','Lopes','gael.lopes@email.com','1999-12-18','18595255040','Rua 16','1','Campinas ',25,'1001013'),
-('samuel.soares','Samuel','Soares','samuel.soares@email.com','1985-02-18','56386869087','Rua 17','1','Uberlândia',13,'3001002'),
-('miguel.fernandes','Miguel','Fernandes','miguel.fernandes@email.com','2002-07-26','21231747005','Rua 18','1','Rio de Janeiro',19,'4001001'),
-('valentina.vieira','Valentina','Vieira','valentina.vieira@email.com','2002-05-20','38029618034','Rua 19','1','Rio de Janeiro',19,'4001001'),
-('maria.julia.barbosa','Maria Julia','Barbosa','maria.julia.barbosa@email.com','1984-09-12','74863186010','Rua 20','1',' São Gonçalo',19,'4001002');
+('samuel.soares','Samuel','Soares','samuel.soares@email.com','1985-02-18','56386869087','Rua 17','1','Uberlândia',13,'30010020'),
+('miguel.fernandes','Miguel','Fernandes','miguel.fernandes@email.com','2002-07-26','21231747005','Rua 18','1','Rio de Janeiro',19,'40010010'),
+('valentina.vieira','Valentina','Vieira','valentina.vieira@email.com','2002-05-20','38029618034','Rua 19','1','Rio de Janeiro',19,'40010010'),
+('maria.julia.barbosa','Maria Julia','Barbosa','maria.julia.barbosa@email.com','1984-09-12','74863186010','Rua 20','1',' São Gonçalo',19,'40010020');
 SELECT * FROM GameStore.tblCustomer;
 
 -- -----------------------------------------------------
