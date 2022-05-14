@@ -17,7 +17,7 @@ USE GameStore;
 -- -----------------------------------------------------
 -- tblTypeGenre
 -- -----------------------------------------------------
-CREATE TABLE tblTypeGenre (
+CREATE TABLE GameStore.tblTypeGenre (
   idTypeGenre INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dsDescriptionEN VARCHAR(50) NOT NULL,
   dsDescriptionPT VARCHAR(50) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE tblTypeGenre (
 -- -----------------------------------------------------
 -- tblTypePlatform
 -- -----------------------------------------------------
-CREATE TABLE tblTypePlatform (
+CREATE TABLE GameStore.tblTypePlatform (
   idTypePlatform INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dsDescription VARCHAR(50) NOT NULL,
   stActive BOOLEAN NOT NULL DEFAULT 1
@@ -37,7 +37,7 @@ CREATE TABLE tblTypePlatform (
 -- -----------------------------------------------------
 -- tblPublisher
 -- -----------------------------------------------------
-CREATE TABLE tblPublisher (
+CREATE TABLE GameStore.tblPublisher (
   idPublisher INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dsDescription VARCHAR(100) NOT NULL,
   dsWikipediaLink VARCHAR(100),
@@ -48,7 +48,7 @@ CREATE TABLE tblPublisher (
 -- -----------------------------------------------------
 -- tblGame
 -- -----------------------------------------------------
-CREATE TABLE tblGame (
+CREATE TABLE GameStore.tblGame (
   idGame INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dsName VARCHAR(150) NOT NULL,
   dsReleaseDate DATE NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE tblGame (
 -- -----------------------------------------------------
 -- tblGamePlatform
 -- -----------------------------------------------------
-CREATE TABLE tblGamePlatform (
+CREATE TABLE GameStore.tblGamePlatform (
   idGamePlatform  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGame INTEGER NOT NULL,
   idTypePlatform INTEGER NOT NULL,
@@ -77,11 +77,11 @@ CREATE TABLE tblGamePlatform (
 -- -----------------------------------------------------
 -- tblMedia
 -- -----------------------------------------------------
-CREATE TABLE tblMedia (
+CREATE TABLE GameStore.tblMedia (
   idMedia  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGame INTEGER NOT NULL,
   isVideo BOOLEAN NOT NULL, 
-  dsUrl  VARCHAR(150) NOT NULL,
+  dsUrl  VARCHAR(175) NOT NULL,
   stActive BOOLEAN NOT NULL DEFAULT 1, 
   FOREIGN KEY (idGame) REFERENCES tblGame(idGame) ON DELETE CASCADE
 );
@@ -90,9 +90,12 @@ CREATE TABLE tblMedia (
 -- -----------------------------------------------------
 -- tblHighlight
 -- -----------------------------------------------------
-CREATE TABLE tblHighlight (
+CREATE TABLE GameStore.tblHighlight (
   idHighlight  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGame INTEGER NOT NULL,
+  dsHighlightHeader  VARCHAR(100) NOT NULL,
+  dsHighlightImage  VARCHAR(150) NOT NULL,
+  dsHighlightDescription VARCHAR(500) NOT NULL,
   dsPublicationDate DATE NOT NULL, 
   stActive BOOLEAN NOT NULL DEFAULT 1,
   FOREIGN KEY (idGame) REFERENCES tblGame(idGame) ON DELETE CASCADE
@@ -101,7 +104,7 @@ CREATE TABLE tblHighlight (
 -- -----------------------------------------------------
 -- tblTypeState
 -- -----------------------------------------------------
-CREATE TABLE tblTypeState (
+CREATE TABLE GameStore.tblTypeState (
   idTypeState  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dsAbbreviation VARCHAR(2) NOT NULL,
   dsName VARCHAR(50) NOT NULL,
@@ -111,7 +114,7 @@ CREATE TABLE tblTypeState (
 -- -----------------------------------------------------
 -- tblWarehouseEntrance
 -- -----------------------------------------------------
-CREATE TABLE tblWarehouseEntrance (
+CREATE TABLE GameStore.tblWarehouseEntrance (
   idWarehouseEntrance  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGamePlatform INTEGER NOT NULL,
   dsQuantity INTEGER NOT NULL,
@@ -123,7 +126,7 @@ CREATE TABLE tblWarehouseEntrance (
 -- -----------------------------------------------------
 -- tblPrice
 -- -----------------------------------------------------
-CREATE TABLE tblPrice (
+CREATE TABLE GameStore.tblPrice (
   idPrice  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGamePlatform INTEGER NOT NULL,
   dsValue DECIMAL(5,2)  NOT NULL,
@@ -136,7 +139,7 @@ CREATE TABLE tblPrice (
 -- -----------------------------------------------------
 -- tblTypeStatusOrder
 -- -----------------------------------------------------
-CREATE TABLE tblTypeStatusOrder (
+CREATE TABLE GameStore.tblTypeStatusOrder (
   idTypeStatusOrder  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dsDescriptionEN VARCHAR(50) NOT NULL,
   dsDescriptionPT VARCHAR(50) NOT NULL,
@@ -147,7 +150,7 @@ CREATE TABLE tblTypeStatusOrder (
 -- -----------------------------------------------------
 -- tblCustomer
 -- -----------------------------------------------------
-CREATE TABLE tblCustomer (
+CREATE TABLE GameStore.tblCustomer (
   idCustomer  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dsUsername VARCHAR(255) NOT NULL,
   dsFirstName VARCHAR(255) NOT NULL,
@@ -168,12 +171,12 @@ CREATE TABLE tblCustomer (
 -- -----------------------------------------------------
 -- tblOrder
 -- -----------------------------------------------------
-CREATE TABLE tblOrder (
+CREATE TABLE GameStore.tblOrder (
   idOrder  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,  
   idCustomer INTEGER NOT NULL,
   idTypeStatusOrder INTEGER NOT NULL,   
   dsDateTimeOrder DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
-  dsTotalValue DECIMAL(7,2)  NOT NULL,
+  dsTotalValue DECIMAL(10,2),
   dsTrackingCode VARCHAR(100),
   FOREIGN KEY (idCustomer) REFERENCES tblCustomer(idCustomer) ON DELETE CASCADE,
   FOREIGN KEY (idTypeStatusOrder) REFERENCES tblTypeStatusOrder(idTypeStatusOrder) ON DELETE CASCADE
@@ -182,7 +185,7 @@ CREATE TABLE tblOrder (
 -- -----------------------------------------------------
 -- tblItem
 -- -----------------------------------------------------
-CREATE TABLE tblItem (
+CREATE TABLE GameStore.tblItem (
   idItem INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idOrder  INTEGER NOT NULL,
   idPrice INTEGER NOT NULL,   

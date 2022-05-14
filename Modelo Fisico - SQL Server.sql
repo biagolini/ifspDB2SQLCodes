@@ -82,7 +82,7 @@ CREATE TABLE tblMedia (
   idMedia INTEGER NOT NULL IDENTITY(1,1),
   idGame INTEGER NOT NULL,
   isVideo BIT NOT NULL,
-  dsUrl  VARCHAR(150) NOT NULL,
+  dsUrl  VARCHAR(175) NOT NULL,
   stActive BIT NOT NULL DEFAULT 1, 
   PRIMARY KEY (idMedia),
   FOREIGN KEY (idGame) REFERENCES tblGame(idGame) ON DELETE CASCADE
@@ -94,6 +94,9 @@ CREATE TABLE tblMedia (
 CREATE TABLE tblHighlight (
   idHighlight INTEGER NOT NULL IDENTITY(1,1),
   idGame INTEGER NOT NULL,
+  dsHighlightHeader  VARCHAR(100) NOT NULL,
+  dsHighlightImage  VARCHAR(150) NOT NULL,
+  dsHighlightDescription VARCHAR(500) NOT NULL,
   dsPublicationDate DATE NOT NULL, 
   stActive BIT NOT NULL DEFAULT 1, 
   PRIMARY KEY (idHighlight),
@@ -178,7 +181,7 @@ CREATE TABLE tblOrder (
   idCustomer INTEGER NOT NULL,
   idTypeStatusOrder INTEGER NOT NULL, 
   dsDateTimeOrder DATETIME NOT NULL DEFAULT GETDATE();
-  dsTotalValue DECIMAL(7,2)  NOT NULL,
+  dsTotalValue DECIMAL(10,2),
   dsTrackingCode VARCHAR(100),
   PRIMARY KEY (idOrder),  
   FOREIGN KEY (idCustomer) REFERENCES tblCustomer(idCustomer) ON DELETE CASCADE, 

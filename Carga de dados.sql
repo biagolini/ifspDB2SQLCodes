@@ -1,28 +1,28 @@
 -- -----------------------------------------------------
 -- tblTypeGenre
 -- -----------------------------------------------------
-INSERT INTO tblTypeGenre(dsDescriptionEN,dsDescriptionPT) VALUES
+INSERT INTO GameStore.tblTypeGenre(dsDescriptionEN,dsDescriptionPT) VALUES
 ('Action and Aventure','Ação e Aventura'),
 ('Simulation and Sports','Simulação e Esportes'),
 ('Puzzlers and Party games','Quebra-cabeças e Jogos de festa');
-SELECT * FROM tblTypeGenre;
+SELECT * FROM GameStore.tblTypeGenre;
 
 
 -- -----------------------------------------------------
 -- tblTypePlatform
 -- -----------------------------------------------------
-INSERT INTO tblTypePlatform(dsDescription) VALUES
+INSERT INTO GameStore.tblTypePlatform(dsDescription) VALUES
 ('Nintendo Switch'),
 ('Playstation 4'),
 ('Playstation 5'),
 ('Xbox One');
-SELECT * FROM tblTypePlatform;
+SELECT * FROM GameStore.tblTypePlatform;
 
 
 -- -----------------------------------------------------
 -- tblPublisher
 -- -----------------------------------------------------
-INSERT INTO tblPublisher(dsDescription,dsWikipediaLink) VALUES
+INSERT INTO GameStore.tblPublisher(dsDescription,dsWikipediaLink) VALUES
 ('Activision','https://en.wikipedia.org/wiki/Activision_Blizzard'),
 ('Atlus','https://en.wikipedia.org/wiki/Atlus'),
 ('Bandai Namco Entertainment','https://en.wikipedia.org/wiki/Bandai_Namco_Holdings'),
@@ -45,14 +45,14 @@ INSERT INTO tblPublisher(dsDescription,dsWikipediaLink) VALUES
 ('StudioMDHR',NULL),
 ('Ubisoft','https://en.wikipedia.org/wiki/Ubisoft'),
 ('Xseed Games','https://en.wikipedia.org/wiki/Xseed_Games');
-SELECT * FROM tblPublisher;
+SELECT * FROM GameStore.tblPublisher;
 
 
 
 -- -----------------------------------------------------
 -- tblGame
 -- -----------------------------------------------------
-INSERT INTO tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCover) VALUES
+INSERT INTO GameStore.tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCover) VALUES
 ('1-2-Switch','2017-03-03',3,15,'https://upload.wikimedia.org/wikipedia/en/2/21/1-2-Switch.jpg'),
 ('Among Us','2020-12-15',3,10,'https://upload.wikimedia.org/wikipedia/en/9/9a/Among_Us_cover_art.jpg'),
 ('Animal Crossing: New Horizons','2020-03-20',3,15,'https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg'),
@@ -61,7 +61,7 @@ INSERT INTO tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCover) VALUES
 ('Assassin’s Creed Unity','2014-11-17',1,21,'https://upload.wikimedia.org/wikipedia/en/4/41/Assassin%27s_Creed_Unity_cover.jpg'),
 ('Astral Chain','2019-08-30',1,15,'https://upload.wikimedia.org/wikipedia/en/6/67/Astral_Chain.jpg'),
 ('Battlefield 1','2016-10-21',1,8,'https://upload.wikimedia.org/wikipedia/en/f/fc/Battlefield_1_cover_art.jpg'),
-('Big Brain Academy: Brain vs. Brain','2021-12-03',3,15,'https://upload.wikimedia.org/wikipedia/commons/c/cb/Big_Brain_Academy_Logo.png'),
+('Big Brain Academy: Brain vs. Brain','2021-12-03',3,15,'https://ovicio.com.br/wp-content/uploads/2021/12/20211208-big-brain-academy-keyart-555x555.jpeg'),
 ('Bloodborne','2015-03-24',1,17,'https://upload.wikimedia.org/wikipedia/en/6/68/Bloodborne_Cover_Wallpaper.jpg'),
 ('Call of Duty: Advanced Warfare','2014-11-04',1,1,'https://upload.wikimedia.org/wikipedia/en/3/3b/Advanced_Warfare.jpg'),
 ('Call of Duty: Black Ops III','2015-11-06',1,1,'https://upload.wikimedia.org/wikipedia/en/b/b1/Black_Ops_3.jpg'),
@@ -80,7 +80,7 @@ INSERT INTO tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCover) VALUES
 ('Donkey Kong Country: Tropical Freeze','2018-05-04',1,15,'https://upload.wikimedia.org/wikipedia/en/f/fb/DKC5_box_art.jpg'),
 ('Dragon Quest XI: Echoes of an Elusive Age','2017-07-29',3,18,'https://upload.wikimedia.org/wikipedia/en/4/4c/Dragon_Quest_XI_cover_art.jpg'),
 ('Driveclub','2014-10-07',3,17,'https://upload.wikimedia.org/wikipedia/en/6/6f/Driveclub_box_art.jpg'),
-('Enter the Gungeon','2017-12-14',1,7,'https://upload.wikimedia.org/wikipedia/en/e/ef/Enter_the_Gungeon_logo.png'),
+('Enter the Gungeon','2017-12-14',1,7,'https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_EnterTheGungeon.jpg'),
 ('Fallout 4','2015-11-10',1,4,'https://upload.wikimedia.org/wikipedia/en/7/70/Fallout_4_cover_art.jpg'),
 ('FIFA 16','2015-09-22',2,8,'https://upload.wikimedia.org/wikipedia/en/2/27/FIFA_16_cover.jpg'),
 ('FIFA 17','2016-09-27',2,8,'https://upload.wikimedia.org/wikipedia/en/0/08/FIFA_17_cover.jpeg'),
@@ -126,7 +126,7 @@ INSERT INTO tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCover) VALUES
 ('Miitopia','2021-05-21',3,15,'https://upload.wikimedia.org/wikipedia/en/7/77/Miitopia_3DS.jpg'),
 ('Minecraft','2011-11-18',2,14,'https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png'),
 ('MLB The Show 21','2021-04-20',2,17,'https://upload.wikimedia.org/wikipedia/en/7/75/MLBTheShow21Cover.jpg'),
-('Momotaro Dentetsu: Showa, Heisei, Reiwa Mo Teiban!','2020-11-19',3,12,'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Nintendo-Switch-Cartridge.jpg/640px-Nintendo-Switch-Cartridge.jpg'),
+('Momotaro Dentetsu: Showa, Heisei, Reiwa Mo Teiban!','2020-11-19',3,12,'https://nintendoeverything.com/wp-content/uploads/momotaro-2.jpg'),
 ('Monster Hunter Rise','2021-03-26',1,5,'https://upload.wikimedia.org/wikipedia/en/4/41/Monster_hunter_rise_cover.jpg'),
 ('Monster Hunter: World','2018-01-26',1,5,'https://upload.wikimedia.org/wikipedia/en/1/1b/Monster_Hunter_World_cover_art.jpg'),
 ('New Pokémon Snap','2021-04-30',3,15,'https://upload.wikimedia.org/wikipedia/en/f/f1/Newpokemonsnap.png'),
@@ -151,7 +151,7 @@ INSERT INTO tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCover) VALUES
 ('Ring Fit Adventure','2019-10-18',2,15,'https://upload.wikimedia.org/wikipedia/en/0/0e/Ringfitadventure.jpg'),
 ('Rise of the Tomb Raider','2015-11-10',1,14,'https://upload.wikimedia.org/wikipedia/en/2/29/Rise_of_the_Tomb_Raider.jpg'),
 ('Ryse: Son of Rome','2013-11-22',1,14,'https://upload.wikimedia.org/wikipedia/en/c/c5/Ryse_box_art.jpg'),
-('Sea of Thieves','2018-03-20',1,14,'https://education.oracle.com/oracle-certification-path/pFamily_48'),
+('Sea of Thieves','2018-03-20',1,14,'https://en.wikipedia.org/wiki/Sea_of_Thieves#/media/File:Sea_of_thieves_cover_art.jpg'),
 ('Spider-Man: Miles Morales','2020-11-12',1,17,'https://upload.wikimedia.org/wikipedia/en/a/a3/Spider-Man_Miles_Morales.jpeg'),
 ('Splatoon 2','2017-07-21',1,15,'https://upload.wikimedia.org/wikipedia/en/4/49/Splatoon_2.jpg'),
 ('Spyro Reignited Trilogy','2018-11-13',1,1,'https://upload.wikimedia.org/wikipedia/en/5/54/Spyro_Reignited_Trilogy.png'),
@@ -169,9 +169,9 @@ INSERT INTO tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCover) VALUES
 ('The Last of Us Remastered','2014-07-29',1,17,'https://upload.wikimedia.org/wikipedia/en/4/46/Video_Game_Cover_-_The_Last_of_Us.jpg'),
 ('The Legend of Zelda: Breath of the Wild','2017-03-03',1,15,'https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg'),
 ('The Legend of Zelda: Link’s Awakening','2019-09-20',1,15,'https://upload.wikimedia.org/wikipedia/en/7/74/The_Legend_of_Zelda_Link%27s_Awakening_%282019_video_game%29.jpg'),
-('The Legend of Zelda: Skyward Sword HD','2021-07-16',1,15,'https://upload.wikimedia.org/wikipedia/en/9/99/Legend_of_Zelda_Skyward_Sword_boxart.png'),
-('The Witcher 3: Wild Hunt','2015-05-18',1,6,'https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg'),
-('Thief Simulator','2019-05-19',1,9,'https://upload.wikimedia.org/wikipedia/en/5/56/Thief_Simulator_cover.jpg'),
+('The Legend of Zelda: Skyward Sword HD','2011-07-16',1,15,'https://theculturednerd.org/wp-content/uploads/2021/02/Skyward_sword_hd_cover_art.jpeg'),
+('The Witcher 3: Wild Hunt','2015-05-18',1,6,'https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheLegendOfZeldaSkywardSwordHD_image1600w.jpg'),
+('Thief Simulator','2019-05-19',1,6,'https://upload.wikimedia.org/wikipedia/en/5/56/Thief_Simulator_cover.jpg'),
 ('Titanfall','2014-09-22',1,8,'https://upload.wikimedia.org/wikipedia/commons/8/8e/Titanfall-logo.jpg'),
 ('Tom Clancy’s The Division','2016-03-08',1,21,'https://upload.wikimedia.org/wikipedia/en/0/03/The_Division_box.jpg'),
 ('Uncharted 4: A Thief’s End','2016-05-10',1,17,'https://upload.wikimedia.org/wikipedia/en/1/1a/Uncharted_4_box_artwork.jpg'),
@@ -179,13 +179,13 @@ INSERT INTO tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCover) VALUES
 ('Xenoblade Chronicles 2','2017-12-01',1,15,'https://upload.wikimedia.org/wikipedia/en/4/4a/Xenoblade_Chronicles_2.jpg'),
 ('Xenoblade Chronicles: Definitive Edition','2020-05-29',1,15,'https://upload.wikimedia.org/wikipedia/en/d/d9/Xenoblade_box_artwork.png'),
 ('Yoshi’s Crafted World','2019-03-29',1,15,'https://upload.wikimedia.org/wikipedia/en/3/38/Yoshi%27s_Crafted_World.jpg');
-SELECT * FROM tblGame;
+SELECT * FROM GameStore.tblGame;
 
 
 -- -----------------------------------------------------
 -- tblGamePlatform
 -- -----------------------------------------------------
-INSERT INTO tblGamePlatform(idGame,idTypePlatform) VALUES
+INSERT INTO GameStore.tblGamePlatform(idGame,idTypePlatform) VALUES
 (1,1),
 (2,1),
 (3,1),
@@ -320,13 +320,13 @@ INSERT INTO tblGamePlatform(idGame,idTypePlatform) VALUES
 (124,1),
 (125,1),
 (126,1);
-SELECT * FROM tblGamePlatform;
+SELECT * FROM GameStore.tblGamePlatform;
 
 
 -- -----------------------------------------------------
 -- tblMedia
 -- -----------------------------------------------------
-INSERT INTO tblMedia(idGame,isVideo,dsUrl) VALUES
+INSERT INTO GameStore.tblMedia(idGame,isVideo,dsUrl) VALUES
 (2,0,'https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg'),
 (3,0,'https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg'),
 (5,0,'https://upload.wikimedia.org/wikipedia/en/e/ea/Arms_Gameplay_Match.jpg'),
@@ -340,6 +340,12 @@ INSERT INTO tblMedia(idGame,isVideo,dsUrl) VALUES
 (18,0,'https://upload.wikimedia.org/wikipedia/en/9/9b/CTR_and_CTR-NitroFueled.png'),
 (19,0,'https://upload.wikimedia.org/wikipedia/en/6/6a/Cuphead_gameplay%2C_Captain_Brineybeard.png'),
 (20,0,'https://upload.wikimedia.org/wikipedia/en/8/88/Cyberpunk_2077_gameplay.png'),
+(20,0,'https://www.cyberpunk.net/build/images/home3/screen-image-mercenary-e79283ec.jpg'),
+(20,0,'https://www.cyberpunk.net/build/images/home3/screen-image-implant-0c07a7ce.jpg'),
+(20,0,'https://www.cyberpunk.net/build/images/media/screenshots/Cyberpunk2077_Party_at_night_RGB-en-d339ac11.jpg'),
+(20,0,'https://www.cyberpunk.net/build/images/media/screenshots/Cyberpunk2077_Love_this_town_RGB-en-bc9e7b03.jpg'),
+(20,1,'https://www.youtube.com/embed/qIcTM8WXFj'),
+(20,1,'https://www.youtube.com/embed/liuFhVXAlZw'),
 (22,0,'https://upload.wikimedia.org/wikipedia/en/d/d6/Demon_Souls_Screenshot.jpg'),
 (23,0,'https://upload.wikimedia.org/wikipedia/en/8/88/Destiny_gameplay.jpeg'),
 (24,0,'https://upload.wikimedia.org/wikipedia/en/c/c5/Detroit_Become_Human_gameplay.png'),
@@ -364,6 +370,13 @@ INSERT INTO tblMedia(idGame,isVideo,dsUrl) VALUES
 (50,0,'https://upload.wikimedia.org/wikipedia/en/7/71/Halo_5_Guardians_gameplay.png'),
 (52,0,'https://upload.wikimedia.org/wikipedia/en/1/12/Horizon_Zero_Dawn_gameplay.jpg'),
 (53,0,'https://upload.wikimedia.org/wikipedia/en/8/85/Age_of_Calamity_screenshot.jpg'),
+(53,0,'https://www.zelda.com/hyrule-warriors/gameplay-header-e5a99f99415796a2a83e2d66012f0679.jpg'),
+(53,0,'https://www.zelda.com/hyrule-warriors/characters-header-4b9626c9e90f887e7102b2f0d65d2a9c.jpg'),
+(53,0,'https://www.zelda.com/hyrule-warriors/gameplay-header-e5a99f99415796a2a83e2d66012f0679.jpg'),
+(53,0,'https://m.media-amazon.com/images/I/81wH9LRIP5L._AC_SL1500_.jpg'),
+(53,0,'https://www.nintendo.se/images/gallery/sw_switch_hyrule_warriors_age_of_calamity/__gallery/020_Action/HyruleWarriorsAgeOfCalamity_scrn_Action_018.jpg'),
+(53,0,'https://i5.walmartimages.ca/images/Large/245/998/6000202245998.jpg'),
+(53,1,'https://youtu.be/uDMWRRAEogs'),
 (54,0,'https://upload.wikimedia.org/wikipedia/en/e/e7/Infamous_Second_Son_gameplay.jpg'),
 (56,0,'https://upload.wikimedia.org/wikipedia/en/c/c7/Kingdom_Hearts_III_Summons_Gameplay.jpg'),
 (57,0,'https://upload.wikimedia.org/wikipedia/en/2/23/Kirby_Star_Allies_Gameplay.jpg'),
@@ -402,6 +415,12 @@ INSERT INTO tblMedia(idGame,isVideo,dsUrl) VALUES
 (110,0,'https://upload.wikimedia.org/wikipedia/en/2/2f/Super_Mario_Party_tricycle_race_2018.png'),
 (110,0,'https://upload.wikimedia.org/wikipedia/en/f/fe/Super_Mario_Party_board.png'),
 (111,0,'https://upload.wikimedia.org/wikipedia/en/9/95/Super_Smash_Bros._Ultimate_gameplay.jpg'),
+(113,0,'https://s3.us-east-1.amazonaws.com/nd.images/uploads/Patrol-Demo-Screenshot-for-Feb-11-Blog.png'),
+(113,0,'https://s3.us-east-1.amazonaws.com/nd.images/uploads/Key-Art-Images-Light-for-Feb-11-Blog_200304_205427.jpg'),
+(113,0,'https://s3.us-east-1.amazonaws.com/nd.images/uploads/Key-Art-Images-Dark-for-Feb-11-Blog_200304_205559.jpg'),
+(113,0,'https://s3.us-east-1.amazonaws.com/nd.images/uploads/ellie-hi-res.jpg'),
+(113,0,'https://s3.us-east-1.amazonaws.com/nd.images/uploads/Blog-Post-Lead-Image-for-Feb-11-Blog.png'),
+(113,1,'https://youtu.be/16RlfA39vhM'),
 (114,0,'https://upload.wikimedia.org/wikipedia/en/5/56/The_Last_of_Us_visuals.jpg'),
 (115,0,'https://upload.wikimedia.org/wikipedia/en/b/b3/Breath_of_the_Wild_paraglide.jpg'),
 (115,0,'https://upload.wikimedia.org/wikipedia/en/c/ce/Climbing_in_BotW.jpg'),
@@ -410,43 +429,45 @@ INSERT INTO tblMedia(idGame,isVideo,dsUrl) VALUES
 (118,0,'https://upload.wikimedia.org/wikipedia/en/f/ff/Witcher3Gameplay.png'),
 (121,0,'https://upload.wikimedia.org/wikipedia/en/a/a2/Tom_Clancy%27s_The_Division_gameplay_screenshot.jpg'),
 (122,0,'https://upload.wikimedia.org/wikipedia/en/a/a9/Uncharted_4_open_world_visuals.jpg'),
+(122,0,'https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-screenshot-16-15jun15?$1600px$'),
+(122,0,'https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-a-thiefs-end-screen-04-ps4-us-09mar16?$1600px--t$'),
+(122,0,'https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-screenshot-12-15jun15?$1600px$'),
+(122,0,'https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-screenshot-14-15jun15?$1600px$'),
+(122,0,'https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-screenshot-20-15jun15?$1600px$'),
+(122,0,'https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-screenshot-09-15jun15?$1600px$'),
+(122,1,'https://youtu.be/ezPI0rPKwtE'),
 (125,0,'https://upload.wikimedia.org/wikipedia/en/c/c3/Xenoblade-Landscape.jpg'),
 (125,0,'https://upload.wikimedia.org/wikipedia/en/d/d7/Xenoblade_-_Battle_System_%28without_Monado%29.png'),
 (126,0,'https://upload.wikimedia.org/wikipedia/en/6/6c/Yoshi_pre-release_gameplay_screenshot_2.jpg'),
 (126,0,'https://upload.wikimedia.org/wikipedia/en/8/81/Yoshi_pre-release_gameplay_screenshot_1.jpg'),
-(20,0,'https://www.cyberpunk.net/build/images/home3/screen-image-mercenary-e79283ec.jpg'),
-(20,0,'https://www.cyberpunk.net/build/images/home3/screen-image-implant-0c07a7ce.jpg'),
-(20,0,'https://www.cyberpunk.net/build/images/media/screenshots/Cyberpunk2077_Party_at_night_RGB-en-d339ac11.jpg'),
-(20,0,'https://www.cyberpunk.net/build/images/media/screenshots/Cyberpunk2077_Love_this_town_RGB-en-bc9e7b03.jpg'),
-(20,1,'https://www.youtube.com/embed/qIcTM8WXFj'),
-(20,1,'https://www.youtube.com/embed/liuFhVXAlZw');
-SELECT * FROM tblMedia;
+(126,0,'https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_yoshiscraftedworld_2/NSwitch_YoshisCraftedWorld_01.jpg'),
+(126,0,'https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_yoshiscraftedworld_2/NSwitch_YoshisCraftedWorld_02.jpg'),
+(126,0,'https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_yoshiscraftedworld_2/NSwitch_YoshisCraftedWorld_05.jpg'),
+(126,0,'https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_yoshiscraftedworld_2/NSwitch_YoshisCraftedWorld_06.jpg'),
+(126,0,'https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_yoshiscraftedworld_2/NSwitch_YoshisCraftedWorld_08.jpg'),
+(126,0,'https://fs-prod-cdn.nintendo-europe.com/media/images/06_screenshots/games_5/nintendo_switch_6/nswitch_yoshiscraftedworld_2/NSwitch_YoshisCraftedWorld_12.jpg'),
+(126,1,'https://youtu.be/dcndZNVUxFM'),
+(126,1,'https://youtu.be/k9xHZXiLvLY');
+SELECT * FROM GameStore.tblMedia;
 
 
 -- -----------------------------------------------------
 -- tblHighlight
 -- -----------------------------------------------------
-INSERT INTO tblHighlight(idGame,dsPublicationDate) VALUES
-(126,'2022-03-06'),
-(125,'2022-03-07'),
-(115,'2022-03-08'),
-(110,'2022-03-09'),
-(109,'2022-03-10'),
-(98,'2022-03-11'),
-(95,'2022-03-12'),
-(49,'2022-03-13'),
-(35,'2022-03-14'),
-(34,'2022-03-15'),
-(26,'2022-03-16'),
-(72,'2022-03-17');
-SELECT * FROM tblHighlight;
+INSERT INTO GameStore.tblHighlight(idGame,dsPublicationDate,dsHighlightHeader,dsHighlightImage,dsHighlightDescription) VALUES
+(126,'2022-03-06','Faça arte com o Yoshi em um mundo artesanal','https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_YoshisCraftedWorld_image1600w.jpg','Entre numa nova aventura do Yoshi em um mundo feito de objetos do dia a dia – como caixas e copos de papel! Jogando como o Yoshi, você saltará alto, engolirá inimigos e sairá à caça de tesouros para encontrar todos os diferentes itens colecionáveis. Por outro lado, as fases podem ser jogadas de trás para frente, abrindo novas perspectivas a serem exploradas e novas maneiras de se encontrar alguns itens que foram escondidos com mais cuidado!'),
+(122,'2022-03-07','Cada tesouro tem seu preço','https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-a-thiefs-end-accolades-screen-01-ps4-us-12may16?$1600px$','Três anos depois dos acontecimentos de UNCHARTED 3: Drake´s Deception, tudo indica que Nathan Drake deixou para trás o mundo dos caçadores de tesouros. Porém, não demora muito para o destino bater à porta dele: é seu irmão, Sam, que reaparece pedindo ajuda para salvar a própria vida e oferece uma aventura que Drake não pode recusar.'),
+(113,'2022-03-08','Uma história complexa e emocionante','https://www.arkade.com.br/wp-content/uploads/2020/06/the-last-of-us-2-capa.jpg','Vivencie os conflitos morais cada vez maiores criados pela caçada implacável de Ellie em busca de vingança. O ciclo de violência deixado no caminho dela desafiará as suas noções de certo ou errado, bem ou mal e herói ou vilão.'),
+(20,'2022-03-09','Explore a cidade do futuro','https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7','Night City está repleta de coisas para fazer, lugares para ver e pessoas para conhecer. E você decide aonde ir, quando partir e como chegar lá.'),
+(53,'2022-03-10','Lute contra hordas dos inimigos mais formidáveis de Hyrule ','https://t.ctcdn.com.br/jDlBVKKaHjXVKBvw8WKhbNmmfn0=/0x68:1000x631/512x288/smart/filters:format(webp)/i396588.jpeg','Vivencie os conflitos que desolaram Hyrule. Aprenda mais sobre Zelda, os quatro campeões, o rei de Hyrule e mais em cenas dramáticas enquanto eles tentam salvar o reino da calamidade. O jogo Hyrule Warriors: Age of Calamity é a única maneira de ver em primeira mão o que aconteceu 100 anos atrás.');
+SELECT * FROM GameStore.tblHighlight;
 
 
 
 -- -----------------------------------------------------
 -- tblTypeState
 -- -----------------------------------------------------
-INSERT INTO tblTypeState(dsAbbreviation,dsName) VALUES
+INSERT INTO GameStore.tblTypeState(dsAbbreviation,dsName) VALUES
 ('AC','Acre'),
 ('AL','Alagoas'),
 ('AP','Amapá'),
@@ -474,13 +495,13 @@ INSERT INTO tblTypeState(dsAbbreviation,dsName) VALUES
 ('SP','São Paulo'),
 ('SE','Sergipe'),
 ('TO','Tocantins');
-SELECT * FROM tblTypeState;
+SELECT * FROM GameStore.tblTypeState;
 
 
 -- -----------------------------------------------------
 -- tblWarehouseEntrance
 -- -----------------------------------------------------
-INSERT INTO tblWarehouseEntrance(idGamePlatform,dsQuantity) VALUES
+INSERT INTO GameStore.tblWarehouseEntrance(idGamePlatform,dsQuantity) VALUES
 (15,16),
 (113,25),
 (11,13),
@@ -580,14 +601,15 @@ INSERT INTO tblWarehouseEntrance(idGamePlatform,dsQuantity) VALUES
 (122,12),
 (126,4),
 (117,17),
-(85,20);
-SELECT * FROM tblWarehouseEntrance;
+(85,20),
+(126,50);
+SELECT * FROM GameStore.tblWarehouseEntrance;
 
 
 -- -----------------------------------------------------
 -- tblPrice
 -- -----------------------------------------------------
-INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
+INSERT INTO GameStore.tblPrice(idGamePlatform, dsValue) VALUES
 (15,510.29),
 (113,493.91),
 (11,467.09),
@@ -687,16 +709,17 @@ INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
 (122,503.88),
 (126,524.76),
 (117,500.24),
-(85,543.4);
-SELECT * FROM tblPrice;
+(85,543.4),
+(134,485.80);
+SELECT * FROM GameStore.tblPrice;
 -- -----------------------------------------------------
 -- tblPrice
 -- -----------------------------------------------------
-INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
+INSERT INTO GameStore.tblPrice(idGamePlatform, dsValue) VALUES
 (21,100),
 (22,10);
 
-INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
+INSERT INTO GameStore.tblPrice(idGamePlatform, dsValue) VALUES
 (21,200),
 (22,200);
 
@@ -705,18 +728,19 @@ INSERT INTO tblPrice(idGamePlatform, dsValue) VALUES
 -- -----------------------------------------------------
 -- tblTypeStatusOrder
 -- -----------------------------------------------------
-INSERT INTO tblTypeStatusOrder(dsDescriptionEN,dsDescriptionPT) VALUES
+INSERT INTO GameStore.tblTypeStatusOrder(dsDescriptionEN,dsDescriptionPT) VALUES
 ('Awaiting payment','Aguardando pagamento'),
 ('Payment accept','Pagamento aprovado'),
 ('Shipped','Enviado'),
 ('Recived','Recebido'),
-('Finished','Finalizado');
-SELECT * FROM tblTypeStatusOrder;
+('Finished','Finalizado'),
+('Canceled','Cancelado');
+SELECT * FROM GameStore.tblTypeStatusOrder;
 
 -- -----------------------------------------------------
 -- tblCustomer
 -- -----------------------------------------------------
-INSERT INTO tblCustomer(dsUsername,dsFirstName,dsLastName,dsEmail,dsBirthDate,dsCPF,dsStreet,dsNumber,dsCity,idTypeState,dsZip) VALUES
+INSERT INTO GameStore.tblCustomer(dsUsername,dsFirstName,dsLastName,dsEmail,dsBirthDate,dsCPF,dsStreet,dsNumber,dsCity,idTypeState,dsZip) VALUES
 ('jose.almeida','José','Almeida','jose.almeida@email.com','1984-10-18','88918301006','Rua 1','1','São Paulo',25,'1001001'),
 ('arthur.santos','Arthur','Santos','arthur.santos@email.com','2004-02-14','25576356004','Rua 2','1','Santos',25,'1001002'),
 ('heloisa.oliveira','Heloísa','Oliveira','heloisa.oliveira@email.com','2004-05-17','91790702054','Rua 3','1','Sorocaba',25,'1001003'),
@@ -737,34 +761,43 @@ INSERT INTO tblCustomer(dsUsername,dsFirstName,dsLastName,dsEmail,dsBirthDate,ds
 ('miguel.fernandes','Miguel','Fernandes','miguel.fernandes@email.com','2002-07-26','21231747005','Rua 18','1','Rio de Janeiro',19,'4001001'),
 ('valentina.vieira','Valentina','Vieira','valentina.vieira@email.com','2002-05-20','38029618034','Rua 19','1','Rio de Janeiro',19,'4001001'),
 ('maria.julia.barbosa','Maria Julia','Barbosa','maria.julia.barbosa@email.com','1984-09-12','74863186010','Rua 20','1',' São Gonçalo',19,'4001002');
-SELECT * FROM tblCustomer;
+SELECT * FROM GameStore.tblCustomer;
 
 -- -----------------------------------------------------
 -- tblOrder
 -- -----------------------------------------------------
-INSERT INTO tblOrder(idCustomer,idTypeStatusOrder,dsTotalValue,dsTrackingCode) VALUES
-(1,5,100,'A001'),
-(2,5,200,'B002'),
-(3,4,300,'C003'),
-(4,4,400,'D004'),
-(1,3,500,'E005'),
-(2,3,600,'F006'),
-(5,2,700,'G007'),
-(6,2,800,'H008'),
-(9,1,900,'I009'),
-(7,1,1000,'J0010'),
-(8,2,2000,'K0011'),
-(8,1,3000,'L0012');
-SELECT * FROM tblOrder;
+INSERT INTO GameStore.tblOrder(idCustomer,idTypeStatusOrder,dsTotalValue,dsTrackingCode,dsDateTimeOrder) VALUES
+(1,5,NULL,'A001','2021-01-01'),
+(2,5,NULL,'B002','2021-01-02'),
+(3,4,NULL,'C003','2021-01-03'),
+(4,4,NULL,'D004','2021-01-15'),
+(1,3,NULL,'E005','2021-01-21'),
+(2,3,NULL,'F006','2021-02-01'),
+(5,2,NULL,'G007','2021-03-01'),
+(6,2,NULL,'H008','2021-04-01'),
+(9,1,NULL,NULL,'2021-05-01'),
+(7,1,NULL,NULL,'2021-10-01'),
+(8,2,NULL,'K0011','2021-11-01'),
+(8,1,NULL,NULL,'2021-12-01');
+SELECT * FROM GameStore.tblOrder;
 
 -- -----------------------------------------------------
 -- tblItem
 -- -----------------------------------------------------
-INSERT INTO tblItem(idOrder,idPrice,dsQuantity) VALUES
+INSERT INTO GameStore.tblItem(idOrder,idPrice,dsQuantity) VALUES
 (1,1,1),
 (1,2,1),
 (1,3,1),
-(2,2,2),
-(2,2,1),
-(3,3,1);
-SELECT * FROM tblItem;
+(2,4,2),
+(2,5,1),
+(3,6,1),
+(4,7,1),
+(5,8,1),
+(6,9,1),
+(7,10,2),
+(8,11,1),
+(9,12,1),
+(10,13,1),
+(11,14,1),
+(12,15,2);
+SELECT * FROM GameStore.tblItem;
