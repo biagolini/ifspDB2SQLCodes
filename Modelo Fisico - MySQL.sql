@@ -176,7 +176,7 @@ CREATE TABLE GameStore.tblOrder (
   idCustomer INTEGER NOT NULL,
   idTypeStatusOrder INTEGER NOT NULL,   
   dsDateTimeOrder DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
-  dsTotalValue DECIMAL(10,2),
+  dsTotalValue DECIMAL(10,2) DEFAULT 0,
   dsTrackingCode VARCHAR(100),
   FOREIGN KEY (idCustomer) REFERENCES tblCustomer(idCustomer) ON DELETE CASCADE,
   FOREIGN KEY (idTypeStatusOrder) REFERENCES tblTypeStatusOrder(idTypeStatusOrder) ON DELETE CASCADE
@@ -209,13 +209,15 @@ CREATE TABLE GameStore.tblUserProfile (
 -- -----------------------------------------------------
 CREATE TABLE GameStore.tblUser (
   idUser  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idCustomer  INTEGER,
   dsName VARCHAR(255) NOT NULL,
   dsEmail VARCHAR(255) UNIQUE,  
   dsPassword  VARCHAR(255),
   dsPasswordDateTimeLastEdition  DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
   idUserProfile INTEGER  NOT NULL DEFAULT 2,
   stActive BIT NOT NULL DEFAULT 1, 
-  FOREIGN KEY (idUserProfile) REFERENCES tblUserProfile(idUserProfile)
+  FOREIGN KEY (idUserProfile) REFERENCES tblUserProfile(idUserProfile),
+  FOREIGN KEY (idCustomer) REFERENCES tblCustomer(idCustomer)
 );
 
 
@@ -224,12 +226,41 @@ CREATE TABLE GameStore.tblUser (
 -- -----------------------------------------------------
 -- Trigger para atualizar campo de hora da ultima atualização da senha de usuário
 DELIMITER $$
-CREATE TRIGGER trg_PasswordLastEdition
+CREATE TRIGGER trig_password_last_edition
 BEFORE UPDATE ON tbluser
 FOR EACH ROW
 BEGIN 
 	IF NEW.dsPassword <> OLD.dsPassword THEN 
 		SET NEW.dsPasswordDateTimeLastEdition = CURRENT_TIMESTAMP; 
 	END IF; 
+END $$
+DELIMITER ;
+
+-- Trigger quando inserido um item em um pedido, atualizar o valor total do pedido
+-- AFTER INSERT
+-- AFTER INSERT ------------------------------------------------------------------
+DELIMITER $$
+CREATE TRIGGER trig_update_order
+AFTER INSERT ON tblItem
+FOR EACH ROW
+BEGIN
+	DECLARE v_subItem_value  DECIMAL(10,2);    
+    DECLARE v_old_total_value  DECIMAL(10,2);  
+    
+    SELECT dsValue INTO v_subItem_value FROM tblPrice WHERE idPrice = NEW.idPrice;       
+    SELECT dsTotalValue INTO v_old_total_value FROM tblOrder WHERE tblOrder.idOrder = NEW.idOrder;
+
+	IF v_old_total_value IS NULL THEN 
+		UPDATE tblOrder 
+        SET dsTotalValue =  0
+        WHERE
+			tblOrder.idOrder = NEW.idOrder;
+	END IF;     
+    
+	UPDATE tblOrder 
+		SET 
+			dsTotalValue =  ((v_subItem_value* NEW.dsQuantity) + dsTotalValue) -- dsTotalValue + (v_subItem_value * NEW.dsQuantity))
+		WHERE
+			tblOrder.idOrder = NEW.idOrder;
 END $$
 DELIMITER ;

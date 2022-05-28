@@ -1,3 +1,4 @@
+USE GameStore;
 -- -----------------------------------------------------
 -- tblTypeGenre
 -- -----------------------------------------------------
@@ -716,12 +717,8 @@ SELECT * FROM GameStore.tblPrice;
 -- tblPrice
 -- -----------------------------------------------------
 INSERT INTO GameStore.tblPrice(idGamePlatform, dsValue) VALUES
-(21,100),
-(22,10);
-
-INSERT INTO GameStore.tblPrice(idGamePlatform, dsValue) VALUES
-(21,200),
-(22,200);
+(21,500),
+(22,500);
 
 
 
@@ -741,7 +738,6 @@ SELECT * FROM GameStore.tblTypeStatusOrder;
 -- tblCustomer
 -- -----------------------------------------------------
 INSERT INTO GameStore.tblCustomer(dsUsername,dsFirstName,dsLastName,dsEmail,dsBirthDate,dsCPF,dsStreet,dsNumber,dsCity,idTypeState,dsZip) VALUES
-('jose.almeida','José','Almeida','jose.almeida@email.com','1984-10-18','88918301006','Rua 1','1','São Paulo',25,'10010010'),
 ('arthur.santos','Arthur','Santos','arthur.santos@email.com','2004-02-14','25576356004','Rua 2','1','Santos',25,'10010020'),
 ('heloisa.oliveira','Heloísa','Oliveira','heloisa.oliveira@email.com','2004-05-17','91790702054','Rua 3','1','Sorocaba',25,'10010030'),
 ('davi.souza','Davi','Souza','davi.souza@email.com','2000-12-20','55466693065','Rua 4','1','Guarulhos ',25,'10010040'),
@@ -767,18 +763,18 @@ SELECT * FROM GameStore.tblCustomer;
 -- tblOrder
 -- -----------------------------------------------------
 INSERT INTO GameStore.tblOrder(idCustomer,idTypeStatusOrder,dsTotalValue,dsTrackingCode,dsDateTimeOrder) VALUES
-(1,5,NULL,'A001','2021-01-01'),
-(2,5,NULL,'B002','2021-01-02'),
-(3,4,NULL,'C003','2021-01-03'),
-(4,4,NULL,'D004','2021-01-15'),
-(1,3,NULL,'E005','2021-01-21'),
-(2,3,NULL,'F006','2021-02-01'),
-(5,2,NULL,'G007','2021-03-01'),
-(6,2,NULL,'H008','2021-04-01'),
-(9,1,NULL,NULL,'2021-05-01'),
-(7,1,NULL,NULL,'2021-10-01'),
-(8,2,NULL,'K0011','2021-11-01'),
-(8,1,NULL,NULL,'2021-12-01');
+(5,5,NULL,'A001','2021-01-01'),
+(6,5,NULL,'B002','2021-01-02'),
+(7,4,NULL,'C003','2021-01-03'),
+(8,4,NULL,'D004','2021-01-15'),
+(9,3,NULL,'E005','2021-01-21'),
+(10,3,NULL,'F006','2021-02-01'),
+(11,2,NULL,'G007','2021-03-01'),
+(12,2,NULL,'H008','2021-04-01'),
+(13,1,NULL,NULL,'2021-05-01'),
+(14,1,NULL,NULL,'2021-10-01'),
+(15,2,NULL,'K0011','2021-11-01'),
+(5,1,NULL,NULL,'2021-12-01');
 SELECT * FROM GameStore.tblOrder;
 
 -- -----------------------------------------------------
@@ -804,22 +800,20 @@ SELECT * FROM GameStore.tblItem;
 
 
 
-
 -- -----------------------------------------------------
 -- tblUserProfile
 -- -----------------------------------------------------
-INSERT INTO tblUserProfile(dsDescription,stCreateLink) VALUES
+INSERT INTO tblUserProfile(dsDescription,isAdmin) VALUES
 ('Admin',1),
-('Regular',0);
+('Customer',0);
 SELECT * FROM tblUserProfile;
 
 -- -----------------------------------------------------
 -- tblUser
 -- -----------------------------------------------------
-INSERT INTO tblUser(dsName,dsEmail,dsPassword, idUserProfile) VALUES
-('Francisco Carvalho', 'chico@email.com', '$2a$10$lfGFS2qcGKcyfsEQIZGBuu8WDB8RepBEjRCZ4hF3x.gBiVWUBKGqC',1),
-('João Silva', 'jose.almeida@email.com', '$2a$10$2.P3Sj9JMG5pHGJYZAKA.eMX97aUcQwMWRNX9Puo1k2YBQuY0BvKS',1),
-('Heloísa Oliveira', 'heloisa.oliveira@email.com', '$2a$10$WXfQsblcdtTpL/dndZUC9.NUXDk6bvOTpCr33N7E2/cB/U83RTfvu',2),
-('Maria Clara Gomes', 'maria.clara.gomes@email.com', '$2a$10$.xuFBDRtXnUYZT1wHb0vGO8VPB13x/xQF89xNQ1kAhktqzOqQ/h.G',2);
+INSERT INTO tblUser(dsName,dsEmail,dsPassword, idUserProfile,idCustomer) VALUES
+('Administrador da aplicação', 'admin', '$2a$10$2.P3Sj9JMG5pHGJYZAKA.eMX97aUcQwMWRNX9Puo1k2YBQuY0BvKS',1,NULL),
+('Arthur', 'arthur.santos@email.com@email.com', '$2a$10$WXfQsblcdtTpL/dndZUC9.NUXDk6bvOTpCr33N7E2/cB/U83RTfvu',2,1),
+('Heloísa', 'heloisa.oliveira@email.com', '$2a$10$WXfQsblcdtTpL/dndZUC9.NUXDk6bvOTpCr33N7E2/cB/U83RTfvu',2,2);
 SELECT * FROM tblUser;
 
