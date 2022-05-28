@@ -801,3 +801,25 @@ INSERT INTO GameStore.tblItem(idOrder,idPrice,dsQuantity) VALUES
 (11,14,1),
 (12,15,2);
 SELECT * FROM GameStore.tblItem;
+
+
+
+
+-- -----------------------------------------------------
+-- tblUserProfile
+-- -----------------------------------------------------
+INSERT INTO tblUserProfile(dsDescription,stCreateLink) VALUES
+('Admin',1),
+('Regular',0);
+SELECT * FROM tblUserProfile;
+
+-- -----------------------------------------------------
+-- tblUser
+-- -----------------------------------------------------
+INSERT INTO tblUser(dsName,dsEmail,dsPassword, idUserProfile) VALUES
+('Francisco Carvalho', 'chico@email.com', '$2a$10$lfGFS2qcGKcyfsEQIZGBuu8WDB8RepBEjRCZ4hF3x.gBiVWUBKGqC',1),
+('João Silva', 'jose.almeida@email.com', '$2a$10$2.P3Sj9JMG5pHGJYZAKA.eMX97aUcQwMWRNX9Puo1k2YBQuY0BvKS',1),
+('Heloísa Oliveira', 'heloisa.oliveira@email.com', '$2a$10$WXfQsblcdtTpL/dndZUC9.NUXDk6bvOTpCr33N7E2/cB/U83RTfvu',2),
+('Maria Clara Gomes', 'maria.clara.gomes@email.com', '$2a$10$.xuFBDRtXnUYZT1wHb0vGO8VPB13x/xQF89xNQ1kAhktqzOqQ/h.G',2);
+SELECT * FROM tblUser;
+

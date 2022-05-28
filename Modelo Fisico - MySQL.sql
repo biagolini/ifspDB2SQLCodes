@@ -194,3 +194,42 @@ CREATE TABLE GameStore.tblItem (
   FOREIGN KEY (idPrice) REFERENCES tblPrice(idPrice) ON DELETE CASCADE
 );
 
+
+-- -----------------------------------------------------
+-- tblUserProfile
+-- -----------------------------------------------------
+CREATE TABLE GameStore.tblUserProfile (
+  idUserProfile INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  dsDescription VARCHAR(255) NOT NULL UNIQUE,
+  isAdmin BOOLEAN NOT NULL DEFAULT 0
+);
+
+-- -----------------------------------------------------
+-- tblUser
+-- -----------------------------------------------------
+CREATE TABLE GameStore.tblUser (
+  idUser  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  dsName VARCHAR(255) NOT NULL,
+  dsEmail VARCHAR(255) UNIQUE,  
+  dsPassword  VARCHAR(255),
+  dsPasswordDateTimeLastEdition  DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
+  idUserProfile INTEGER  NOT NULL DEFAULT 2,
+  stActive BIT NOT NULL DEFAULT 1, 
+  FOREIGN KEY (idUserProfile) REFERENCES tblUserProfile(idUserProfile)
+);
+
+
+-- -----------------------------------------------------
+-- Trigger
+-- -----------------------------------------------------
+-- Trigger para atualizar campo de hora da ultima atualização da senha de usuário
+DELIMITER $$
+CREATE TRIGGER trg_PasswordLastEdition
+BEFORE UPDATE ON tbluser
+FOR EACH ROW
+BEGIN 
+	IF NEW.dsPassword <> OLD.dsPassword THEN 
+		SET NEW.dsPasswordDateTimeLastEdition = CURRENT_TIMESTAMP; 
+	END IF; 
+END $$
+DELIMITER ;

@@ -202,3 +202,44 @@ CREATE TABLE tblItem (
   FOREIGN KEY (idPrice) REFERENCES tblPrice(idPrice) ON DELETE CASCADE
 );
 
+-- -----------------------------------------------------
+-- tblUserProfile
+-- -----------------------------------------------------
+CREATE TABLE GameStore.tblUserProfile (
+  idUserProfile INTEGER  NOT NULL IDENTITY(1,1),
+  dsDescription VARCHAR(255) NOT NULL UNIQUE,
+  stCreateLink BIT NOT NULL DEFAULT 0,
+  PRIMARY KEY(idUserProfile)
+);
+
+-- -----------------------------------------------------
+-- tblUser
+-- -----------------------------------------------------
+CREATE TABLE GameStore.tblUser (
+  idUser INTEGER  NOT NULL IDENTITY(1,1),
+  dsName VARCHAR(255) NOT NULL,
+  dsEmail VARCHAR(255) UNIQUE,  
+  dsPassword  VARCHAR(255),
+  dsPasswordDateTimeLastEdition  DATETIME NOT NULL DEFAULT GETDATE(), 
+  idUserProfile INTEGER  NOT NULL DEFAULT 2,
+  stActive BIT NOT NULL DEFAULT 1, 
+  PRIMARY KEY(idUser),
+  FOREIGN KEY (idUserProfile) REFERENCES tblUserProfile(idUserProfile)
+);
+
+
+-- -----------------------------------------------------
+-- Trigger
+-- -----------------------------------------------------
+-- Trigger para atualizar campo de hora da ultima atualização da senha de usuário
+CREATE TRIGGER trg_PasswordLastEdition
+	ON tblUser
+	AFTER UPDATE
+	AS
+	IF (UPDATE (dsPassword))
+		BEGIN
+		UPDATE tblUser
+		SET dsPasswordDateTimeLastEdition  = GETDATE()
+		WHERE idUser IN (SELECT DISTINCT idUser FROM inserted)
+	END;
+	
