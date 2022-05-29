@@ -220,7 +220,7 @@ INSERT INTO GameStore.tblGame(dsName,dsReleaseDate,idTypeGenre,idPublisher,dsCov
 ('Ring Fit Adventure','2019-10-18',2,15,'https://upload.wikimedia.org/wikipedia/en/0/0e/Ringfitadventure.jpg'),
 ('Rise of the Tomb Raider','2015-11-10',1,14,'https://upload.wikimedia.org/wikipedia/en/2/29/Rise_of_the_Tomb_Raider.jpg'),
 ('Ryse: Son of Rome','2013-11-22',1,14,'https://upload.wikimedia.org/wikipedia/en/c/c5/Ryse_box_art.jpg'),
-('Sea of Thieves','2018-03-20',1,14,'https://en.wikipedia.org/wiki/Sea_of_Thieves#/media/File:Sea_of_thieves_cover_art.jpg'),
+('Sea of Thieves','2018-03-20',1,14,'https://upload.wikimedia.org/wikipedia/en/7/77/Sea_of_thieves_cover_art.jpg'),
 ('Spider-Man: Miles Morales','2020-11-12',1,17,'https://upload.wikimedia.org/wikipedia/en/a/a3/Spider-Man_Miles_Morales.jpeg'),
 ('Splatoon 2','2017-07-21',1,15,'https://upload.wikimedia.org/wikipedia/en/4/49/Splatoon_2.jpg'),
 ('Spyro Reignited Trilogy','2018-11-13',1,1,'https://upload.wikimedia.org/wikipedia/en/5/54/Spyro_Reignited_Trilogy.png'),
