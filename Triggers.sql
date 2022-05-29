@@ -82,7 +82,7 @@ BEGIN
     
 	-- Parte I: Registra a saida, e devido ao outro trigger vai reduz estoque automaticamente
     SELECT idGamePlatform INTO v_idGamePlatform FROM tblPrice WHERE tblPrice.idPrice = NEW.idPrice;   
-	INSERT INTO GameStore.tblWarehouseExit(idGamePlatform,dsQuantity,idTypeWarehouseMovement) VALUES (v_idGamePlatform,NEW.dsQuantity,1);
+	INSERT INTO GameStore.tblWarehouseExit(idGamePlatform,dsQuantity,idTypeWarehouseMovement) VALUES (v_idGamePlatform,NEW.dsQuantity,3);
 
 	-- Parte II: Atualiza valor total da ordem   
     SELECT dsValue INTO v_subItem_value FROM tblPrice WHERE idPrice = NEW.idPrice;       

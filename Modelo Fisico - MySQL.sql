@@ -141,7 +141,6 @@ CREATE TABLE GameStore.tblTypeStatusOrder (
 -- -----------------------------------------------------
 CREATE TABLE GameStore.tblCustomer (
   idCustomer  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  dsUsername VARCHAR(255) NOT NULL,
   dsFirstName VARCHAR(255) NOT NULL,
   dsLastName VARCHAR(255) NOT NULL,
   dsEmail VARCHAR(255) NOT NULL,
@@ -226,7 +225,7 @@ CREATE TABLE GameStore.tblTypeWarehouseMovement (
 CREATE TABLE GameStore.tblWarehouseEntrance (
   idWarehouseEntrance  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idGamePlatform INTEGER NOT NULL,
-  idTypeWarehouseMovement  INTEGER NOT NULL,
+  idTypeWarehouseMovement  INTEGER NOT NULL  DEFAULT 1,
   dsQuantity INTEGER NOT NULL,
   dsMovementDateTime DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
   FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE,
