@@ -111,17 +111,6 @@ CREATE TABLE GameStore.tblTypeState (
   stActive BOOLEAN NOT NULL DEFAULT 1
 );
 
--- -----------------------------------------------------
--- tblWarehouseEntrance
--- -----------------------------------------------------
-CREATE TABLE GameStore.tblWarehouseEntrance (
-  idWarehouseEntrance  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idGamePlatform INTEGER NOT NULL,
-  dsQuantity INTEGER NOT NULL,
-  stActive BOOLEAN NOT NULL DEFAULT 1, 
-  FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE
-);
-
 
 -- -----------------------------------------------------
 -- tblPrice
@@ -201,7 +190,7 @@ CREATE TABLE GameStore.tblItem (
 CREATE TABLE GameStore.tblUserProfile (
   idUserProfile INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   dsDescription VARCHAR(255) NOT NULL UNIQUE,
-  isAdmin BOOLEAN NOT NULL DEFAULT 0
+  isFromCompany BOOLEAN NOT NULL DEFAULT 0
 );
 
 -- -----------------------------------------------------
@@ -211,7 +200,7 @@ CREATE TABLE GameStore.tblUser (
   idUser  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idCustomer  INTEGER,
   dsName VARCHAR(255) NOT NULL,
-  dsEmail VARCHAR(255) UNIQUE,  
+  dsUsername VARCHAR(255) UNIQUE,  
   dsPassword  VARCHAR(255),
   dsPasswordDateTimeLastEdition  DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
   idUserProfile INTEGER  NOT NULL DEFAULT 2,
@@ -220,47 +209,53 @@ CREATE TABLE GameStore.tblUser (
   FOREIGN KEY (idCustomer) REFERENCES tblCustomer(idCustomer)
 );
 
+-- -----------------------------------------------------
+-- tblTypeWarehouseMovement
+-- -----------------------------------------------------
+CREATE TABLE GameStore.tblTypeWarehouseMovement (
+  idTypeWarehouseMovement  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  dsDescriptionEN VARCHAR(50) NOT NULL,
+  dsDescriptionPT VARCHAR(50) NOT NULL,
+  stActive BOOLEAN NOT NULL DEFAULT 1
+);
+
 
 -- -----------------------------------------------------
--- Trigger
+-- tblWarehouseEntrance
 -- -----------------------------------------------------
--- Trigger para atualizar campo de hora da ultima atualização da senha de usuário
-DELIMITER $$
-CREATE TRIGGER trig_password_last_edition
-BEFORE UPDATE ON tbluser
-FOR EACH ROW
-BEGIN 
-	IF NEW.dsPassword <> OLD.dsPassword THEN 
-		SET NEW.dsPasswordDateTimeLastEdition = CURRENT_TIMESTAMP; 
-	END IF; 
-END $$
-DELIMITER ;
+CREATE TABLE GameStore.tblWarehouseEntrance (
+  idWarehouseEntrance  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idGamePlatform INTEGER NOT NULL,
+  idTypeWarehouseMovement  INTEGER NOT NULL,
+  dsQuantity INTEGER NOT NULL,
+  dsMovementDateTime DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
+  FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE,
+  FOREIGN KEY (idTypeWarehouseMovement) REFERENCES tblTypeWarehouseMovement(idTypeWarehouseMovement) ON DELETE CASCADE
+);
 
--- Trigger quando inserido um item em um pedido, atualizar o valor total do pedido
--- AFTER INSERT
--- AFTER INSERT ------------------------------------------------------------------
-DELIMITER $$
-CREATE TRIGGER trig_update_order
-AFTER INSERT ON tblItem
-FOR EACH ROW
-BEGIN
-	DECLARE v_subItem_value  DECIMAL(10,2);    
-    DECLARE v_old_total_value  DECIMAL(10,2);  
-    
-    SELECT dsValue INTO v_subItem_value FROM tblPrice WHERE idPrice = NEW.idPrice;       
-    SELECT dsTotalValue INTO v_old_total_value FROM tblOrder WHERE tblOrder.idOrder = NEW.idOrder;
+-- -----------------------------------------------------
+-- tblWarehouseExit
+-- -----------------------------------------------------
+CREATE TABLE GameStore.tblWarehouseExit (
+  idWarehouseExit  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idGamePlatform INTEGER NOT NULL,
+  idTypeWarehouseMovement  INTEGER NOT NULL,
+  dsQuantity INTEGER NOT NULL,
+  dsMovementDateTime DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
+  FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE,
+  FOREIGN KEY (idTypeWarehouseMovement) REFERENCES tblTypeWarehouseMovement(idTypeWarehouseMovement) ON DELETE CASCADE
+);
 
-	IF v_old_total_value IS NULL THEN 
-		UPDATE tblOrder 
-        SET dsTotalValue =  0
-        WHERE
-			tblOrder.idOrder = NEW.idOrder;
-	END IF;     
-    
-	UPDATE tblOrder 
-		SET 
-			dsTotalValue =  ((v_subItem_value* NEW.dsQuantity) + dsTotalValue) -- dsTotalValue + (v_subItem_value * NEW.dsQuantity))
-		WHERE
-			tblOrder.idOrder = NEW.idOrder;
-END $$
-DELIMITER ;
+
+-- -----------------------------------------------------
+-- tblWarehouseBalance
+-- -----------------------------------------------------
+CREATE TABLE GameStore.tblWarehouseBalance (
+  idWarehouseBalance  INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idGamePlatform INTEGER NOT NULL,
+  dsQuantity INTEGER NOT NULL DEFAULT 0,
+  dsLastUpdate DATETIME NOT NULL DEFAULT  CURRENT_TIMESTAMP,
+  FOREIGN KEY (idGamePlatform) REFERENCES tblGamePlatform(idGamePlatform) ON DELETE CASCADE
+);
+
+
