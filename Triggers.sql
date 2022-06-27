@@ -16,6 +16,20 @@ DELIMITER ;
 
 
 
+-- Trigger para atualizar data-hora da ultima atualização da mudança de balanço de um item no estoque
+DROP TRIGGER IF EXISTS trig_warehouse_balance_last_edition;
+DELIMITER $$
+CREATE TRIGGER trig_warehouse_balance_last_edition
+BEFORE UPDATE ON tblWarehouseBalance
+FOR EACH ROW
+BEGIN 
+	SET NEW.dsLastUpdate = CURRENT_TIMESTAMP; 
+END $$
+DELIMITER ;
+
+
+
+
 -- Triger que cria um tupla para tabela de balanço de estoque, toda vez que um novo produto for cadastrado
 DROP TRIGGER IF EXISTS trig_create_balance_control;
 

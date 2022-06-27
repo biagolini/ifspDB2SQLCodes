@@ -47,8 +47,8 @@ SELECT * FROM tblUserProfile;
 -- tblTypeWarehouseMovement
 -- -----------------------------------------------------
 INSERT INTO GameStore.tblTypeWarehouseMovement(dsDescriptionEN,dsDescriptionPT) VALUES
-('Manufacturer','Fabricante'),
-('Return','Retorno'),
+('Manufacturer','Fornecedor'),
+('Return','Troca-Defeito'),
 ('Sale','Venda'),
 ('Operational loss','Perda operacional');
 SELECT * FROM GameStore.tblTypeWarehouseMovement;
@@ -387,7 +387,7 @@ INSERT INTO GameStore.tblHighlight(idGame,dsPublicationDate,dsHighlightHeader,ds
 (122,'2022-03-07','Cada tesouro tem seu preço','https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-a-thiefs-end-accolades-screen-01-ps4-us-12may16?$1600px$','Três anos depois dos acontecimentos de UNCHARTED 3: Drake´s Deception, tudo indica que Nathan Drake deixou para trás o mundo dos caçadores de tesouros. Porém, não demora muito para o destino bater à porta dele: é seu irmão, Sam, que reaparece pedindo ajuda para salvar a própria vida e oferece uma aventura que Drake não pode recusar.'),
 (113,'2022-03-08','Uma história complexa e emocionante','https://www.arkade.com.br/wp-content/uploads/2020/06/the-last-of-us-2-capa.jpg','Vivencie os conflitos morais cada vez maiores criados pela caçada implacável de Ellie em busca de vingança. O ciclo de violência deixado no caminho dela desafiará as suas noções de certo ou errado, bem ou mal e herói ou vilão.'),
 (20,'2022-03-09','Explore a cidade do futuro','https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7','Night City está repleta de coisas para fazer, lugares para ver e pessoas para conhecer. E você decide aonde ir, quando partir e como chegar lá.'),
-(53,'2022-03-10','Lute contra hordas dos inimigos mais formidáveis de Hyrule ','https://t.ctcdn.com.br/jDlBVKKaHjXVKBvw8WKhbNmmfn0=/0x68:1000x631/512x288/smart/filters:format(webp)/i396588.jpeg','Vivencie os conflitos que desolaram Hyrule. Aprenda mais sobre Zelda, os quatro campeões, o rei de Hyrule e mais em cenas dramáticas enquanto eles tentam salvar o reino da calamidade. O jogo Hyrule Warriors: Age of Calamity é a única maneira de ver em primeira mão o que aconteceu 100 anos atrás.');
+(53,'2022-03-10','Lute contra inimigos formidáveis de Hyrule','https://t.ctcdn.com.br/jDlBVKKaHjXVKBvw8WKhbNmmfn0=/0x68:1000x631/512x288/smart/filters:format(webp)/i396588.jpeg','Vivencie os conflitos que desolaram Hyrule. Aprenda mais sobre Zelda, os quatro campeões, o rei de Hyrule e mais em cenas dramáticas enquanto eles tentam salvar o reino da calamidade. O jogo Hyrule Warriors: Age of Calamity é a única maneira de ver em primeira mão o que aconteceu 100 anos atrás.');
 SELECT * FROM GameStore.tblHighlight;
 
 
@@ -892,3 +892,31 @@ INSERT INTO GameStore.tblItem(idOrder,idPrice,dsQuantity) VALUES
 (11,14,1),
 (12,15,2);
 SELECT * FROM GameStore.tblItem;
+
+
+
+
+
+-- -----------------------------------------------------
+-- tblWarehouseEntrance
+-- -----------------------------------------------------
+INSERT INTO GameStore.tblWarehouseEntrance(idGamePlatform,idTypeWarehouseMovement,dsQuantity) VALUES
+(10,2,1),
+(20,2,1),
+(30,2,2);
+SELECT * FROM GameStore.tblWarehouseEntrance;
+
+
+
+-- -----------------------------------------------------
+-- tblWarehouseExit
+-- -----------------------------------------------------
+INSERT INTO GameStore.tblWarehouseExit(idGamePlatform,idTypeWarehouseMovement,dsQuantity) VALUES
+(10,4,1),
+(20,4,1),
+(30,4,2);
+SELECT * FROM GameStore.tblWarehouseExit;
+
+
+
+
