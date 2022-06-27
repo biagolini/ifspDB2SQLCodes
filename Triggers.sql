@@ -5,7 +5,7 @@
 DROP TRIGGER IF EXISTS trig_password_last_edition;
 DELIMITER $$
 CREATE TRIGGER trig_password_last_edition
-BEFORE UPDATE ON tbluser
+BEFORE UPDATE ON tblUser
 FOR EACH ROW
 BEGIN 
 	IF NEW.dsPassword <> OLD.dsPassword THEN 
